@@ -1,9 +1,9 @@
+import java.util.*;
 import java.util.Scanner;
 import java.math.*;
 
 
-public class Main
-{
+public class Main {
     public static long factorialUsingForLoop(int n) {
         long fact = 1;
         for (int i = 2; i <= n; i++) {
@@ -12,11 +12,11 @@ public class Main
         return fact;
     }
 
-    public static void main(String[] args)
-    {
-        System.out.println("(14)\na.выпишите всевозможные комбинации, состоящие из двух слов заданного предложения;\n" +
+
+    public static void main(String[] args) {
+        System.out.println("(14)a.выпишите всевозможные комбинации, состоящие из двух слов заданного предложения;\n" +
                 "\n" +
-                "b.определите количество возможных комбинаций из каждых трех слов заданного предложения;\n"+
+                "b.определите количество возможных комбинаций из каждых трех слов заданного предложения;\n" +
                 "\n" +
                 "c.дан одномерный числовой массив, определить число\n всевозможных комбинаций из\n двух элементов данного массива таким образом чтобы\n первый элемент в паре был\n меньше второго более чем в два раза;\n" +
                 "\n" +
@@ -26,8 +26,7 @@ public class Main
         String x = in.nextLine();
         System.out.println("");
 
-        switch(x)
-        {
+        switch (x) {
             case "a":
                 StringBuilder sb = new StringBuilder();
                 String str2 = new String();
@@ -36,13 +35,10 @@ public class Main
                 System.out.println("Введите строку");
                 String str = in.nextLine();
                 str3 = str;
-                //System.out.println("\n");
 
-                //String str = in.nextLine();
                 String[] mas = str.split(" ");
 
-                for(int i = mas.length - 1; i >= 0; i--)
-                {
+                for (int i = mas.length - 1; i >= 0; i--) {
                     sb.append(mas[i] + " ");
                 }
                 System.out.println("\nКомбинации");
@@ -55,26 +51,20 @@ public class Main
                 String input = in.nextLine();
                 int count = 0;
 
-                if(input.length() != 0)
-                {
+                if (input.length() != 0) {
                     count++;
-                    for (int i = 0; i < input.length(); i++)
-                    {
-                        if(input.charAt(i) == ' ')
-                        {
+                    for (int i = 0; i < input.length(); i++) {
+                        if (input.charAt(i) == ' ') {
                             count++;
                         }
                     }
                 }
-                if(count>=3)
-                {
+                if (count >= 3) {
                     System.out.println("Вы ввели " + count + " слов");
 
                     long stat = factorialUsingForLoop(count) / factorialUsingForLoop(count - 3);
                     System.out.println("Существует " + stat + " различных комбинаций по 3 слова");
-                }
-                else
-                {
+                } else {
                     System.out.println("Вы ввели менее 3-х слов");
                 }
 
@@ -92,17 +82,11 @@ public class Main
 
                 System.out.println("");
 
-                for(int i=0;i<=1;i++)
-                {
-                    for(int j=0;j<=1;j++)
-                    {
-                        if(mask[i]*2>=mask[j])
-                        {
+                for (int i = 0; i <= 1; i++) {
+                    for (int j = 0; j <= 1; j++) {
+                        if (mask[i] * 2 >= mask[j]) {
                             //System.out.print("Не подходит ");
-                        }
-
-                        else
-                        {
+                        } else {
                             k++;
                             //System.out.print("Подходит ");
                         }
@@ -113,6 +97,32 @@ public class Main
                 System.out.println("Кол-во нужных комбинаций");
                 System.out.println(k);
                 break;
+
+            case "d":
+                System.out.println("Введите предложение");
+
+                String words = in.nextLine();
+                int c = 0;
+                int v = 0;
+                int length = words.length();
+                String vowels = "аяуюоеёэиыАЯУЮОЕЁЭИЫ>";
+                //System.out.println(length);
+
+                for (int check = 0; check < length; ++check)
+                    {
+                        char a = words.charAt(check);
+                        if ((a >= 'а' && a <= 'я') || (a >= 'А' && a <= 'Я')) {
+                            if (vowels.indexOf(a) != -1)
+                                v++;
+                            else
+                                c++;
+                        }
+                    }
+                    System.out.println("Согласных букв: " + c );
+                    break;
+
+                }
+
         }
     }
-}
+
