@@ -79,11 +79,11 @@ import java.math.*;
                     if (mask[i] * 2 < mask[j])
                     {
                         k++;
-                        System.out.println(mask[i]+" да "+mask[j]);
+                        //System.out.println(mask[i]+" да "+mask[j]);
                     }
                     else
                     {
-                        System.out.println(mask[i]+" нет "+mask[j]);
+                        //System.out.println(mask[i]+" нет "+mask[j]);
                     }
                 }
             }
@@ -99,10 +99,12 @@ import java.math.*;
             int length = words__.length();
 
             String vowels = "аяуюоеёэиыАЯУЮОЕЁЭИЫ";
-            for (int check = 0; check < length; ++check)
+
+            for (int i = 0; i < length; ++i)
             {
-                char a = words__.charAt(check);
-                if ((a >= 'а' && a <= 'я') || (a >= 'А' && a <= 'Я')) {
+                char a = words__.charAt(i);
+                if ((a >= 'а' && a <= 'я') || (a >= 'А' && a <= 'Я'))
+                {
                     //vowels.indexOf(a) выдаёт номер гласной буквы в String vowels
                     if (vowels.indexOf(a) != -1)
                     {
@@ -124,7 +126,8 @@ import java.math.*;
                     "\n" +
                     "b.определите количество возможных комбинаций из каждых трех слов заданного предложения;\n" +
                     "\n" +
-                    "c.дан одномерный числовой массив, определить число\n всевозможных комбинаций из\n двух элементов данного массива таким образом чтобы\n первый элемент в паре был\n меньше второго более чем в два раза;\n" +
+                    "c.дан одномерный числовой массив, определить число\n всевозможных комбинаций из\n двух элементов " +
+                    "данного массива таким образом чтобы\n первый элемент в паре был\n меньше второго более чем в два раза;\n" +
                     "\n" +
                     "d.найдите число согласных букв в предложении.\n");
 
@@ -151,8 +154,6 @@ import java.math.*;
                     break;
 
                 case "c":
-
-
                     System.out.println("Введите 2 элемента (цифры или числа)");
 
                     int g1 = in.nextInt();
