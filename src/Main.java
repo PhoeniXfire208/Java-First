@@ -4,32 +4,28 @@ import java.math.*;
 
     public class Main
     {
-        public static long factorial(int n)
+        public static long factorial(int count)
         {
             long fact = 1;
-            for (int i = 2; i <= n; i++)
+            for (int i = 2; i <= count; i++)
                 fact = fact * i;
             return fact;
         }
 
         public static void First(String str)
         {
-            StringBuilder sb = new StringBuilder();
-            String str3 = new String();
-            str3 = str;
-
             //разбиваем строку на несколько слов
             String[] mas = str.split(" ");
 
-            for (int i = mas.length - 1; i >= 0; i--)
-            {
-                sb.append(mas[i] + " ");
-            }
-
             System.out.println("\nКомбинации");
 
-            System.out.println(sb.toString().trim());
-            System.out.println(str3);
+            for (int i = mas.length - 1; i >= 0; i--)
+            {
+                for (int j = mas.length - 1; j >= 0; j--)
+                {
+                    System.out.print(mas[i] + " " + mas[j]+ "\n");
+                }
+            }
 
         }
 
@@ -63,33 +59,30 @@ import java.math.*;
             }
         }
 
-        public static void Third(int g1,int g2)
+        public static void Third()
         {
-            int[] mask = new int[2];
-            mask[0] = g1;
-            mask[1] = g2;
-            int k = 0;
+            Scanner in = new Scanner(System.in);
+            /*int mask2 = Integer.parseInt(str2);
 
-            System.out.println("");
+            String[] mask = str2.split(" ");*/
 
-            for (int i = 0; i <= 1; i++)
-            {
-                for (int j = 0; j <= 1; j++)
-                {
-                    if (mask[i] * 2 < mask[j])
-                    {
-                        k++;
-                        //System.out.println(mask[i]+" да "+mask[j]);
+            String k = "";
+                System.out.println("Введите");
+                k = in.nextLine();
+                /*int length = mask2.length();
+                for (int i = 0; i <= length; i++) {
+                    for (int j = 0; j <= length; j++) {
+                        if (mask2[i] * 2 < mask2[j]) {
+                            k++;
+                            //System.out.println(mask[i]+" да "+mask[j]);
+                        } else {
+                            //System.out.println(mask[i]+" нет "+mask[j]);
+                        }
                     }
-                    else
-                    {
-                        //System.out.println(mask[i]+" нет "+mask[j]);
-                    }
-                }
-            }
+                }*/
 
             System.out.println("Кол-во нужных комбинаций");
-            System.out.println(k);
+            //System.out.println(k);
         }
 
         public static void Fourth(String words__)
@@ -140,7 +133,7 @@ import java.math.*;
             switch (x)
             {
                 case "a":
-                    System.out.println("Введите 2 слова через пробел");
+                    System.out.println("Введите слова через пробел");
                     String str = in.nextLine();
                     First(str);
 
@@ -154,12 +147,9 @@ import java.math.*;
                     break;
 
                 case "c":
-                    System.out.println("Введите 2 элемента (цифры или числа)");
+                    System.out.println("Введите числа(введите *, чтобы остановить)");
 
-                    int g1 = in.nextInt();
-                    int g2 = in.nextInt();
-
-                    Third(g1,g2);
+                    Third();
                    break;
 
                 case "d":
@@ -173,4 +163,3 @@ import java.math.*;
             }
         }
     }
-
