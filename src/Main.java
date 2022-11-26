@@ -26,7 +26,6 @@ import java.math.*;
                     System.out.print(mas[i] + " " + mas[j]+ "\n");
                 }
             }
-
         }
 
         public static void Second(String words_)
@@ -59,30 +58,36 @@ import java.math.*;
             }
         }
 
-        public static void Third()
+        public static void Third(int kol)
         {
             Scanner in = new Scanner(System.in);
-            /*int mask2 = Integer.parseInt(str2);
 
-            String[] mask = str2.split(" ");*/
+            int k=0;
 
-            String k = "";
-                System.out.println("Введите");
-                k = in.nextLine();
-                /*int length = mask2.length();
-                for (int i = 0; i <= length; i++) {
-                    for (int j = 0; j <= length; j++) {
-                        if (mask2[i] * 2 < mask2[j]) {
-                            k++;
-                            //System.out.println(mask[i]+" да "+mask[j]);
-                        } else {
-                            //System.out.println(mask[i]+" нет "+mask[j]);
-                        }
+            System.out.println("Введите числа через пробел");
+
+            int[] mask = new int[kol+1];
+
+            for(int m = 0;m <= kol; m++)
+            {
+                mask[m] = in.nextInt();
+            }
+            for (int i = 0; i <= kol; i++)
+            {
+                for (int j = 0; j <= kol; j++)
+                {
+                    if (mask[i] * 2 < mask[j])
+                    {
+                        k++;
+                        //System.out.println(mask[i] + " да " + mask[j]);
+                    } else
+                    {
+                        //System.out.println(mask[i] + " нет " + mask[j]);
                     }
-                }*/
-
-            System.out.println("Кол-во нужных комбинаций");
-            //System.out.println(k);
+                }
+            }
+                System.out.println("Кол-во нужных комбинаций");
+                System.out.println(k);
         }
 
         public static void Fourth(String words__)
@@ -129,7 +134,7 @@ import java.math.*;
             System.out.println("Выберите задачу (по букве)");
             String x = in.nextLine();
             System.out.println("");
-
+            loop1:
             switch (x)
             {
                 case "a":
@@ -147,9 +152,9 @@ import java.math.*;
                     break;
 
                 case "c":
-                    System.out.println("Введите числа(введите *, чтобы остановить)");
-
-                    Third();
+                    System.out.println("Введите кол-во чисел");
+                    int kol = in.nextInt();
+                    Third(kol-1);
                    break;
 
                 case "d":
@@ -160,6 +165,8 @@ import java.math.*;
                     Fourth(words__);
 
                     break;
+                default:
+                System.out.println("Такой задачи не существует");
             }
         }
     }
