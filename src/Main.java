@@ -1,6 +1,4 @@
-import java.util.*;
 import java.util.Scanner;
-import java.math.*;
 
     public class Main
     {
@@ -64,7 +62,7 @@ import java.math.*;
 
             int k=0;
 
-            System.out.println("Введите числа через пробел");
+            System.out.println("Введите числа");
 
             int[] mask = new int[kol+1];
 
@@ -80,14 +78,15 @@ import java.math.*;
                     {
                         k++;
                         //System.out.println(mask[i] + " да " + mask[j]);
-                    } else
+                    }
+                    else
                     {
                         //System.out.println(mask[i] + " нет " + mask[j]);
                     }
                 }
             }
-                System.out.println("Кол-во нужных комбинаций");
-                System.out.println(k);
+            System.out.println("Кол-во нужных комбинаций");
+            System.out.println(k);
         }
 
         public static void Fourth(String words__)
